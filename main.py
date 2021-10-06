@@ -14,3 +14,17 @@ if __name__ == '__main__':
     print_hi('PyCharm')
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+
+from random import randint
+
+hand = ["papier", "kamien", "nozyce"];
+
+x = input("podaj swój wybór");
+print(x);
+
+# print(randint(1, 3))
+
+for i in range(3):
+    i = randint(0, 2);
+    print(hand[i])
