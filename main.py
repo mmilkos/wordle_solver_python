@@ -18,13 +18,27 @@ if __name__ == '__main__':
 
 from random import randint
 
-hand = ["papier", "kamien", "nozyce"];
+p = "papier"
+k = "kamien"
+n = "nozyce"
 
-x = input("podaj swój wybór");
-print(x);
+hand = [p, k, n];
+winning = [[p, k], [k, n], [n, p]];
 
-# print(randint(1, 3))
+for z in range(3):
+    gamer = input("podaj swój wybór (papier, kamien, nozyce):");
+    print("twój wybór:"+ gamer);
 
-for i in range(3):
+
     i = randint(0, 2);
-    print(hand[i])
+    pc = hand[i];
+
+    res = [gamer,pc]
+
+    print("wybór komputera:" + pc)
+    if pc == gamer:
+        print("remis")
+    elif res in winning:
+        print("wygrana")
+    else:
+        print("przegrana")
