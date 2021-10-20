@@ -42,3 +42,26 @@ for z in range(3):
         print("wygrana")
     else:
         print("przegrana")
+from random import randint
+
+liczby = [4, 20, 6, 9, 9]
+print(liczby)
+liczby.extend([randint(0, 10000), randint(0, 10000), randint(0, 10000), randint(0, 10000), randint(0, 10000)])
+
+for i in range(6):
+    print(liczby[-i])
+
+liczby[5] = 11
+print(liczby)
+
+liczby.pop()
+liczby.pop(3)
+print(liczby)
+
+liczby.extend([20, 15, 10])
+print(liczby)
+print(len(liczby))
+
+for each in range(len(liczby)):
+    liczby[each] += 100
+print(liczby)
