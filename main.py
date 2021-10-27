@@ -65,3 +65,55 @@ print(len(liczby))
 for each in range(len(liczby)):
     liczby[each] += 100
 print(liczby)
+
+
+
+# rysowanie geometri
+
+# kwadrat
+for i in range(3):
+    for j in range(6):
+        print('#', end = "")
+    print()
+
+# prostokąt 'leżąc'
+print()
+for i in range(3):
+    for j in range(12):
+        print('#', end = "")
+    print()
+
+# prostokąt 'stojąc'
+print()
+for i in range(6):
+    for j in range(6):
+        print('#', end = "")
+    print()
+
+# trójkąt prostokątny
+print()
+n = 1;
+for i in range(5):
+    for j in range(n):
+        print('#', end = "")
+    n = n + 1
+    print()
+
+# trójkąt prostokątny do góry nogami
+print()
+n = 5;
+for i in range(5):
+    for j in range(n):
+        print('#', end = "")
+    n = n - 1
+    print()
+
+# trójkąt równoramienny
+print()
+x= 4
+for i in range(5):
+    for j in range(n):
+        for
+        print('#', end = "")
+    n = n + 1
+    print()
