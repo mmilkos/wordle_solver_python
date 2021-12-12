@@ -390,3 +390,132 @@ def suma_do(n):
     suma = 0
     for i in range(1, n + 1):
         suma = suma + i
+# funkcje anonimowe lambda
+print((lambda x: x * 2)(4))
+
+
+# wydajność kodu
+
+
+def function_performance(func):
+    start = time.perf_counter()
+    func()
+    stop = time.perf_counter()
+    print(stop - start)
+
+
+# argumenty kluczowe i pozycyjne
+def greet(name, message, separator=''):
+    print(message, name, separator)
+
+
+greet('mateusz', 'siema', '\n')
+
+# argument wielowartościowy
+"""
+*arg - deklaracja argumentu wielowartościowego, 
+od tego momentu możemy przesłać więcej niż jeden argument nienazwany. 
+Automatycznie po przesłaniu argumentu jest on krotką.
+"""
+
+
+def suma(*numbers):
+    result = 0
+    for i in range(len(numbers)):
+        result += numbers[i]
+    print(result)
+
+
+suma(2, 4, 1, 2, 4, 5, 10)
+
+"""
+** arg - argument wielowartościowy, nazwany który może przyjmować klucze - wartości. 
+Ostatecznie argumenty po przesłaniu będą słownikiem.
+"""
+
+
+# zasięg globalny i lokalny
+
+
+def addl(y):
+    # zasięg lokalny
+    c = y
+    print(c)
+
+
+# zasięg globalny
+c = 2
+
+
+def addg():
+    global c
+    c = c + 3
+    print(c)
+
+
+# obiekty, zmienne to obiekty
+
+
+a = 4
+a.bit_length()
+
+listSample = [1, 2, 3, 4, 5, 6]
+listSample2 = listSample
+listSample2.append(450)
+
+# obie listy będą miały tą samą wartość
+
+a = 4
+b = a
+b = 7
+
+
+# a i b będą miały różne wartości
+
+# kopiowanie elementów, kopia płytka
+
+def delete_func(list):
+    list.clear()
+
+
+myList = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+delete_func(myList.copy())
+
+# zdarzenia losowe
+hit_list = []
+
+
+def coin_flip():
+    flip = random.randint(0, 100)
+    if flip > 50:
+        return 'orzeł'
+    else:
+        return 'reszka'
+
+
+for i in range(101):
+    hit_list.append(coin_flip())
+
+dictionaryHit = Counter(hit_list)
+
+# choice i choices
+# choice równy % na wylosowanie
+type_of_loot = ['basic', 'magic', 'epic', 'legendary']
+print(random.choice(type_of_loot))
+
+# choices
+random.choices(type_of_loot, [1, 0.5, 0.25, 0.1], k=100)
+print(Counter(random.choices(type_of_loot, [1, 0.5, 0.25, 0.01], k=1000)))
+
+# shufle
+
+cardList = ['9', '9', '9', '9', '10', '10', '10', '10', 'jack', 'jack', 'jack', 'jack', 'Queen', 'Queen', 'Queen',
+            'Queen', ]
+random.shuffle(cardList)
+
+
+# losowanie unikalncyh liczb (sample)
+
+def lotto(how_many_numbers, range_num):
+    print(random.sample(range(range_num + 1), how_many_numbers))
