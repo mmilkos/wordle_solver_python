@@ -495,3 +495,5 @@ with open('sample.json', encoding='UTF-8') as file6:
     wynik = json.load(file6)
 
 print(odczytanyJson)
+
+# siema
