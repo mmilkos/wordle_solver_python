@@ -63,12 +63,12 @@ def number_from_users_digits():
     number_from_users_input = ''
     for i in counted_digits:
         number_from_users_input += str(i)
-    return number_from_users_input
+    return f'7. Wprowadzone przez użytkownika cyfry utworzą liczbę: {number_from_users_input}'
 
 
 def sum_of_users_digits():
     str_to_int = [int(counted_digits[i]) for i in range(len(counted_digits))]
-    return sum(str_to_int)
+    return f'7. Wprowadzone przez użytkownika cyfry utworzą liczbę: {sum(str_to_int)}'
 
 
 def does_it_contain_a(characters):
@@ -88,8 +88,8 @@ def main_program():
     print(f'4. Ciąg ma w sobie {how_many_other_characters(user_input)} pozostałych znaków')
     print(f'5. Ciąg ma w sobie {how_many_big_letters(user_input)} wielkich liter')
     print(f'6. Ciąg ma w sobie {how_many_small_letters(user_input)} małych liter')
-    print(f'7. Wprowadzone przez użytkownika cyfry utworzą liczbę: {number_from_users_digits()}')
-    print(f'8. Suma z całego ciągu cyfr wprowadzonych przez użytkownika to: {sum_of_users_digits()}')
+#     print(f'7. Wprowadzone przez użytkownika cyfry utworzą liczbę: {number_from_users_digits()}')
+#     print(f'8. Suma z całego ciągu cyfr wprowadzonych przez użytkownika to: {sum_of_users_digits()}')
     print(does_it_contain_a(user_input))
 
 
