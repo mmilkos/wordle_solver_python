@@ -4,16 +4,21 @@ shift + f6 = zmiana nazwy zmiennej
 ctrl + shift + strzałki = przeniesienie kodu
 ctrl + alt + l = upiększanie kodu
 """
+"""
+funkcje - z małej
+
+"""
 # importowanie bibliotek
+# PyPI
 import math
 import random
 import enum
 import time
 import json
+import requests
 from collections import Counter
 
-y = '20'  # string
-
+y = 20
 f'string{y} ze zmienna'
 
 # dzielenie bez reszty
@@ -37,7 +42,6 @@ zmienna_z_dlugim_stringiem = """
     ale długi tekst normalnie
     az dwie linie owO
 """
-print(zmienna_z_dlugim_stringiem)
 
 imie = "mateusz"
 print(imie[0])
@@ -195,14 +199,7 @@ for key in ratings:
 people2 = {
     "IcFDG2bO9AYDF651DoyH": {'name': 'John', 'age': 27, 'sex': 'Male'},
     "KcD9ntE6IRM59vkVta1k": {'name': 'Marie', 'age': 22, 'sex': 'Female'},
-    "yDlgcn99xPc19mYXcRmy": {'name': 'Agness', 'age': 25, 'sex': 'Female'},
-    "cpQh6GiAbBdGv35NDoTk": {'name': 'Nabeel', 'age': 17, 'sex': 'Male'},
-    "12BifzWxCQySKgLhgahC": {'name': 'Jasmin ', 'age': 42, 'sex': 'Female'},
-    "QLnmg0pzlLj9x7c7DlLv": {'name': 'Ruby', 'age': 55, 'sex': 'Female'},
-    "To47urX0DUznWmOxGZ6H": {'name': 'Lori', 'age': 27, 'sex': 'Male'},
-    "KQ4bir3y4tlkbG69I7zq": {'name': 'Marie', 'age': 42, 'sex': 'Female'},
-    "94cp4hsyZP2BnCh4D34z": {'name': 'Agness', 'age': 25, 'sex': 'Female'},
-    "Vr4wRdkljeEs46Czxo54": {'name': 'Chiara', 'age': 17, 'sex': 'Male'},
+    "yDlgcn99xPc19mYXcRmy": {'name': 'Agness', 'age': 25, 'sex': 'Female'}
 }
 
 for key in people2:
@@ -212,11 +209,6 @@ for key in people2:
 
 # wyrażenia listowe
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-
-power = []
-# for i in numbers:
-#     power.append(i * i)
-# print(power)
 
 power = [i * i for i in numbers]
 
@@ -228,70 +220,28 @@ for item in evenNumGen:
 print(sum(evenNumGen))
 
 # wyrażenia słownikowe
-numbers = [1, 2, 3, 4, 5, 6]
-
-multipliedNum = {
-    number: number * number
-    for number in numbers
-}
 celcius = {'t1': -8, 't2': -5, 't3': -6, 't4': -2, 't5': 4}
-print(celcius)
 
 farenheit = {
     key: celcius * 1.8 + 32
     for key, celcius in celcius.items()
 }
-print(farenheit)
 
 # funckcje
 
 Figury = enum.IntEnum(
     'menu_Figury', 'Kwadrat, Prostokąt, Koło, Trójkąt, Trapez')
-wybor = int(input(""" wybierz figurę, której pole chcesz obliczyć:
-1. Kwadrat
-2. Prostokąt
-3. Koło
-4. Trójkąt
-5. Trapez
-
-"""))
 
 
 def rectangle_surface(a, b):
     return a * b
 
 
-def square_surface(a):
-    return a ** 2
-
-
-def triangle_surface(a, h):
-    return 0.5 * a * h
-
-
-def trapeze_surface(a, b, h):
-    return (a + b) * 0.5 * h
-
-
-def circle_surface(R):
-    return R ** 2 * 3.14
-
-
-if wybor == Figury.Kwadrat:
-    A = float(input('Podaj bok kwadratu: '))
-    square_surface(A)
-elif wybor == Figury.Prostokąt:
-    A = float(input('Podaj bok A: '))
-    B = float(input('Podaj bok B: '))
-    rectangle_surface(A, B)
-
 # funkcje anonimowe lambda
 print((lambda x: x * 2)(4))
 
 
 # wydajność kodu
-
-
 def function_performance(func):
     start = time.perf_counter()
     func()
@@ -327,25 +277,6 @@ suma(2, 4, 1, 2, 4, 5, 10)
 ** arg - argument wielowartościowy, nazwany który może przyjmować klucze - wartości. 
 Ostatecznie argumenty po przesłaniu będą słownikiem.
 """
-
-
-# zasięg globalny i lokalny
-
-
-def addl(y):
-    # zasięg lokalny
-    c = y
-    print(c)
-
-
-# zasięg globalny
-c = 2
-
-
-def addg():
-    global c
-    c = c + 3
-    print(c)
 
 
 # kopiowanie elementów, kopia płytka
@@ -496,4 +427,62 @@ with open('sample.json', encoding='UTF-8') as file6:
 
 print(odczytanyJson)
 
-# siema
+# PyPi i instalacja zewnętrznych pakunków REQUEST
+"""
+Instalacja:
+1.odpalic CMD w folderze w którym jest python 
+2. Wpisać komende: python -m pip install [nazwa_paczki]
+
+"""
+response = requests.get('https://videokurs.pl')
+
+
+# sprawdz czy strony odpowiadają
+
+
+def which_page_works():
+    with open('stronki.txt') as file:
+        pages = [line.replace('\n', '') for line in file]
+    for link in range(len(pages)):
+        print(pages[link])
+        try:
+            response = requests.get(pages[link])
+            if response.status_code == 200:
+                print('działa')
+        except requests.exceptions.RequestException:
+            print('nie działa')
+
+
+which_page_works()
+
+
+# pobieranie danych z serwera
+# przydatna strona: https://jsonplaceholder.typicode.com
+
+
+def find_best_users(dict_of_stats):
+    max_amount_of_tasks = max(dict_of_stats)
+    best_users = []
+    for stat in dict_of_stats:
+        if stat == max_amount_of_tasks:
+            best_users.append(stat)
+    return best_users
+
+
+def give_award_to_best_employee(json_file):
+    tasks = json_file.json()
+    num_of_completed_tasks_by_user = dict()
+    for task in tasks:
+        if task['completed']:
+            try:
+                num_of_completed_tasks_by_user[task['userId']] += 1
+            except KeyError:
+                num_of_completed_tasks_by_user[task['userId']] = 1
+    print(find_best_users(num_of_completed_tasks_by_user.items()))
+
+
+list_of_workers = requests.get("https://jsonplaceholder.typicode.com/todos")
+give_award_to_best_employee(list_of_workers)
+
+
+list_of_workers = requests.get("https://jsonplaceholder.typicode.com/todos")
