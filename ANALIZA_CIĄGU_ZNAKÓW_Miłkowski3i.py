@@ -1,20 +1,12 @@
 """
 1. Jakiej długości ciąg wprowadził użytkownik?
-
 2. Ile liter wchodzi w skład wprowadzonego ciągu?
-
 3. Ile cyfr wchodzi w skład wprowadzonego ciągu?
-
 4. Ile nie liter i nie cyfr wchodzi w skład wprowadzonego ciągu?
-
 5. Ile wielkich liter wchodzi w skład?
-
 6. Ile małych liter wchodzi w skład?
-
 7. Jeżeli użytkownik wprowadził cyfry to jaką liczbę stworzą ustawione obok siebie w kolejności występowania w ciągu?
-
 8. Jeżeli użytkownik wprowadził cyfry to sprawdź jaką wartość będzie miała ich suma z całego ciągu?
-
 9. Czy w ciągu wprowadzonym znajduje się litera ‘a’, jeżeli tak to ile razy występuje?
 """
 
@@ -88,8 +80,8 @@ def main_program():
     print(f'4. Ciąg ma w sobie {how_many_other_characters(user_input)} pozostałych znaków')
     print(f'5. Ciąg ma w sobie {how_many_big_letters(user_input)} wielkich liter')
     print(f'6. Ciąg ma w sobie {how_many_small_letters(user_input)} małych liter')
-#     print(f'7. Wprowadzone przez użytkownika cyfry utworzą liczbę: {number_from_users_digits()}')
-#     print(f'8. Suma z całego ciągu cyfr wprowadzonych przez użytkownika to: {sum_of_users_digits()}')
+    print(number_from_users_digits())
+    print(sum_of_users_digits())
     print(does_it_contain_a(user_input))
 
 
