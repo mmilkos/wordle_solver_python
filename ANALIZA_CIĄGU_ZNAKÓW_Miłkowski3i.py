@@ -60,19 +60,20 @@ def number_from_users_digits(characters):
 def sum_of_users_digits(characters):
     counted_digits = [characters[i] for i in range(len(characters)) if characters[i] in all_digits]
     str_to_int = [int(counted_digits[i]) for i in range(len(counted_digits))]
-    return f'8. Wprowadzone przez użytkownika cyfry utworzą liczbę: {sum(str_to_int)}'
+    return f'8. Wprowadzone przez użytkownika sumują się do: {sum(str_to_int)}'
 
 
 def does_it_contain_a(characters):
     letters_a = [characters[i] for i in range(len(characters)) if characters[i].lower() in all_letters and characters[i].lower() == 'a']
     if len(letters_a) > 0:
-        return f'9. w ciągu litera "A" znajduje się {len(letters_a)} razy'
+        return f'9. W ciągu litera "A" znajduje się {len(letters_a)} razy'
     else:
-        return 'nie ma litery A'
+        return '9. Nie ma litery A'
 
 
 def string_info(*functions):
     # A!ABc@d245$4a
+    # !Bc@d245$4
     user_input = input('Podaj dowolny ciąg znaków: ')
     for function in functions:
         print(function(user_input))
