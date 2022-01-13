@@ -22,12 +22,12 @@ def len_of_string(characters):
 
 def how_many_letters(characters):
     counted_letters = [i for i in range(len(characters)) if characters[i].lower() in all_letters]
-    return f'2. Ciąg ma w sobie {counted_letters} liter'
+    return f'2. Ciąg ma w sobie {len(counted_letters)} liter'
 
 
 def how_many_digits(characters):
     counted_digits = [characters[i] for i in range(len(characters)) if characters[i] in all_digits]
-    return f'3. Ciąg ma w sobie {counted_digits} cyfr'
+    return f'3. Ciąg ma w sobie {len(counted_digits)} cyfr'
 
 
 def how_many_other_characters(characters):
@@ -69,7 +69,6 @@ def does_it_contain_a(characters):
         return f'9. w ciągu litera "A" znajduje się {len(letters_a)} razy'
     else:
         return 'nie ma litery A'
-
 
 
 def string_info(*functions):
