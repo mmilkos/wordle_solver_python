@@ -71,6 +71,7 @@ def does_it_contain_a(characters):
         return 'nie ma litery A'
 
 
+
 def string_info(*functions):
     # A!ABc@d245$4a
     user_input = input('Podaj dowolny ciąg znaków: ')
