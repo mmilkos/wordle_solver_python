@@ -17,6 +17,7 @@ import time
 import json
 import requests
 from collections import Counter
+import collections
 
 y = 20
 f'string{y} ze zmienna'
@@ -471,13 +472,10 @@ def find_best_users(dict_of_stats):
 
 def give_award_to_best_employee(json_file):
     tasks = json_file.json()
-    num_of_completed_tasks_by_user = dict()
+    num_of_completed_tasks_by_user = collections.defaultdict(int)
     for task in tasks:
         if task['completed']:
-            try:
-                num_of_completed_tasks_by_user[task['userId']] += 1
-            except KeyError:
-                num_of_completed_tasks_by_user[task['userId']] = 1
+            num_of_completed_tasks_by_user[task['userId']] += 1
     print(find_best_users(num_of_completed_tasks_by_user.items()))
 
 
@@ -486,3 +484,9 @@ give_award_to_best_employee(list_of_workers)
 
 
 list_of_workers = requests.get("https://jsonplaceholder.typicode.com/todos")
+
+"""
+API - aplication programing interface
+"""
+
+r = requests.get()
