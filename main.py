@@ -1,15 +1,4 @@
-"""
-skróty klawiszowe
-shift + f6 = zmiana nazwy zmiennej
-ctrl + shift + strzałki = przeniesienie kodu
-ctrl + alt + l = upiększanie kodu
-"""
-"""
-funkcje - z małej
-
-"""
-# importowanie bibliotek
-# PyPI
+import pprint
 import math
 import random
 import enum
@@ -18,6 +7,23 @@ import json
 import requests
 from collections import Counter
 import collections
+import webbrowser
+from datetime import datetime, timedelta
+"""
+skróty klawiszowe
+shift + f6 = zmiana nazwy zmiennej
+ctrl + shift + strzałki = przeniesienie kodu
+ctrl + alt + l = upiększanie kodu
+"""
+
+
+"""
+funkcje - z małej
+
+"""
+# importowanie bibliotek
+# PyPI
+
 
 y = 20
 f'string{y} ze zmienna'
@@ -488,5 +494,25 @@ list_of_workers = requests.get("https://jsonplaceholder.typicode.com/todos")
 """
 API - aplication programing interface
 """
+time_before = timedelta(days=3)
+search_date = datetime.today() - time_before
 
-r = requests.get()
+params = {
+    'site': 'stackoveflow',
+    'sort': 'votes',
+    'order': 'desc',
+    'fromdate': int(search_date.timestamp()),
+    'tagged': 'python',
+    # 'min': 15
+}
+
+r = requests.get("https://api.stackexchange.com/2.2/questions/", params)
+
+try:
+    questions = r.json()
+except json.decoder.JSONDecodeError:
+    print('niepoprawny format')
+else:
+    for question in questions:
+        pprint.pprint(question['link'])
+        webbrowser.open_new_tab(question['link'])
