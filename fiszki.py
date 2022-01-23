@@ -8,7 +8,7 @@ root.geometry("550x410")
 with open('txt.txt') as r:
     words = [tuple(map(str, i.split(','))) for i in r]
 
-words_counter = len(words) - 2
+words_counter = len(words)
 
 en_words = Label(root, text='')
 
@@ -47,5 +47,3 @@ def answer():
 skip()
 
 root.mainloop()
-
-# siema no
