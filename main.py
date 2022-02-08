@@ -9,13 +9,13 @@ from collections import Counter
 import collections
 import webbrowser
 from datetime import datetime, timedelta
+
 """
 skróty klawiszowe
 shift + f6 = zmiana nazwy zmiennej
 ctrl + shift + strzałki = przeniesienie kodu
 ctrl + alt + l = upiększanie kodu
 """
-
 
 """
 funkcje - z małej
@@ -488,7 +488,6 @@ def give_award_to_best_employee(json_file):
 list_of_workers = requests.get("https://jsonplaceholder.typicode.com/todos")
 give_award_to_best_employee(list_of_workers)
 
-
 list_of_workers = requests.get("https://jsonplaceholder.typicode.com/todos")
 
 """
@@ -516,3 +515,35 @@ else:
     for question in questions:
         pprint.pprint(question['link'])
         webbrowser.open_new_tab(question['link'])
+
+    # POST i DELETE
+
+    # calendarific.com
+
+headers = {
+    "x-api-key": 'tu podaj swój API_key'
+}
+
+r = requests.get('https://api.thecatapi.com/vl/favourites', headers=headers)
+
+"""
+funkcje generujące
+"""
+def generate_10_num()
+    x = 0
+    while x < 10:
+        yield x
+        x += 1
+
+next(generate_10_num())
+"""
+stwórz funkcję generującą x * x tj 1*1, 2*2, 3*3
+"""
+
+def num_multiply_by_itself():
+    number = 0
+    while True:
+        number = number + 1
+        yield number
+
+next(num_multiply_by_itself())
